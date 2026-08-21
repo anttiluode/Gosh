@@ -1,0 +1,20 @@
+{
+  "gate": "gate7-jet-channels",
+  "status": "finite_derivative_channels_do_not_escape_two_moment_pair_data",
+  "bandwidth": 0.4,
+  "set_A": [0,1,4,10,12,17],
+  "set_B": [0,1,8,11,13,17],
+  "rows": [
+    {"max_derivative_order": 0, "channels": 1, "delta_trace": 0.0, "delta_frobenius_squared": 0.0, "delta_trace_cube": 4.069748943291707e-05},
+    {"max_derivative_order": 1, "channels": 2, "delta_trace": 0.0, "delta_frobenius_squared": 1.3322676295501878e-15, "delta_trace_cube": 0.0010139542175429117},
+    {"max_derivative_order": 2, "channels": 3, "delta_trace": 0.0, "delta_frobenius_squared": 2.6645352591003757e-15, "delta_trace_cube": 0.06762400170227423},
+    {"max_derivative_order": 3, "channels": 4, "delta_trace": 0.0, "delta_frobenius_squared": 0.0, "delta_trace_cube": 0.06424241797034824}
+  ],
+  "registered_checks": {
+    "P7A_trace_ties_all_orders": true,
+    "P7B_frobenius_ties_all_orders": true,
+    "P7C_some_third_moment_separates": true,
+    "P7D_all_matrices_hermitian": true
+  },
+  "all_registered_checks_pass": true
+}
