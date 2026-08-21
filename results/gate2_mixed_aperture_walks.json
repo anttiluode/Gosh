@@ -1,0 +1,33 @@
+{
+  "gate": "gate2-mixed-aperture-walks",
+  "status": "information_toy_not_an_arithmetic_support_theorem",
+  "set_A": [0, 1, 4, 10, 12, 17],
+  "set_B": [0, 1, 8, 11, 13, 17],
+  "two_leg_mixed_trace_checks": [
+    {"thetas": [0.8, 0.8], "abs_separation": 8.881784197001252e-16},
+    {"thetas": [1.0, 0.6], "abs_separation": 0.0},
+    {"thetas": [0.7, 0.1], "abs_separation": 0.0},
+    {"thetas": [0.4, 0.4], "abs_separation": 0.0},
+    {"thetas": [0.95, 0.05], "abs_separation": 8.881784197001252e-16}
+  ],
+  "fixed_total_toy_support": 1.6,
+  "allocation_step": 0.05,
+  "per_leg_max_theta": 1.0,
+  "equal_allocation": {
+    "thetas": [0.4, 0.4, 0.4, 0.4],
+    "trace_A": 16.217978381207125,
+    "trace_B": 15.3150725250069,
+    "abs_separation": 0.9029058562002241
+  },
+  "best_asymmetric_allocation": {
+    "thetas": [0.7000000000000001, 0.05, 0.7000000000000001, 0.15000000000000002],
+    "trace_A": 15.291999098205938,
+    "trace_B": 13.137826994478809,
+    "abs_separation": 2.154172103727129
+  },
+  "separation_gain_over_equal": 2.3858213887245294,
+  "P2A_two_leg_pair_statistics_tie": true,
+  "P2B_four_leg_mixed_trace_separates": true,
+  "P2C_asymmetric_allocation_improves": true,
+  "all_registered_predictions_pass": true
+}
