@@ -1,0 +1,151 @@
+{
+  "gate": "gate9-algebraic-escape-audit",
+  "status": "exact_algebraic_jump_exists_but_is_not_a_free_low_bandwidth_invariant",
+  "local_pair_block": {
+    "toy": "u(a)=[1,1+i a], H=u u^T + conj(u) conj(u)^T",
+    "exact_formula": "det H(a) = -4 a^2",
+    "rows": [
+      {
+        "a": 0.1,
+        "det_H": -0.04000000000000004,
+        "det_over_minus4a2": 1.0000000000000009,
+        "lambda_minus": -0.010024999843751936,
+        "abs_lambda_minus_over_a2": 1.0024999843751934,
+        "operator_error_to_rank_boundary": 0.010024999843751934,
+        "error_to_boundary_over_a2": 1.0024999843751932,
+        "det_after_boundary_perturbation": -4.451966434916389e-16,
+        "det_after_1pct_larger_perturbation": 0.00040000000000042145
+      },
+      {
+        "a": 0.03,
+        "det_H": -0.0036000000000000476,
+        "det_over_minus4a2": 1.0000000000000133,
+        "lambda_minus": -0.0009002024999897884,
+        "abs_lambda_minus_over_a2": 1.0002249999886539,
+        "operator_error_to_rank_boundary": 0.0009002024999897885,
+        "error_to_boundary_over_a2": 1.0002249999886539,
+        "det_after_boundary_perturbation": 0.0,
+        "det_after_1pct_larger_perturbation": 3.600000000055052e-05
+      },
+      {
+        "a": 0.01,
+        "det_H": -0.0003999999999999557,
+        "det_over_minus4a2": 0.9999999999998891,
+        "lambda_minus": -0.00010000249999997379,
+        "abs_lambda_minus_over_a2": 1.000024999999738,
+        "operator_error_to_rank_boundary": 0.00010000249999997378,
+        "error_to_boundary_over_a2": 1.0000249999997377,
+        "det_after_boundary_perturbation": 8.882006236054775e-16,
+        "det_after_1pct_larger_perturbation": 4.000000000271742e-06
+      },
+      {
+        "a": 0.003,
+        "det_H": -3.6000000000147e-05,
+        "det_over_minus4a2": 1.0000000000040832,
+        "lambda_minus": -9.000020250060636e-06,
+        "abs_lambda_minus_over_a2": 1.0000022500067374,
+        "operator_error_to_rank_boundary": 9.000020250060635e-06,
+        "error_to_boundary_over_a2": 1.0000022500067371,
+        "det_after_boundary_perturbation": -4.440902090485382e-16,
+        "det_after_1pct_larger_perturbation": 3.6000000056062257e-07
+      },
+      {
+        "a": 0.001,
+        "det_H": -4.000000000115025e-06,
+        "det_over_minus4a2": 1.0000000000287563,
+        "lambda_minus": -1.0000002500509808e-06,
+        "abs_lambda_minus_over_a2": 1.0000002500509808,
+        "operator_error_to_rank_boundary": 1.0000002500509808e-06,
+        "error_to_boundary_over_a2": 1.0000002500509808,
+        "det_after_boundary_perturbation": 0.0,
+        "det_after_1pct_larger_perturbation": 4.000000097511214e-08
+      },
+      {
+        "a": 0.0001,
+        "det_H": -4.000000020099031e-08,
+        "det_over_minus4a2": 1.0000000050247577,
+        "lambda_minus": -1.0000000050247593e-08,
+        "abs_lambda_minus_over_a2": 1.0000000050247593,
+        "operator_error_to_rank_boundary": 1.0000000050247596e-08,
+        "error_to_boundary_over_a2": 1.0000000050247595,
+        "det_after_boundary_perturbation": -4.440892109602853e-16,
+        "det_after_1pct_larger_perturbation": 3.999995900169378e-10
+      }
+    ]
+  },
+  "homometric_global_gram": {
+    "theta": 0.4,
+    "set_A": [0, 1, 4, 10, 12, 17],
+    "set_B": [0, 1, 8, 11, 13, 17],
+    "newton_identity_note": "e_k is determined by tr(G^j), j<=k; e_n=det(G)",
+    "rows": [
+      {
+        "order_k": 1,
+        "power_sum_A": 6.0,
+        "power_sum_B": 6.0,
+        "delta_power_sum": 0.0,
+        "elementary_A": 6.0,
+        "elementary_B": 6.0,
+        "delta_elementary": 0.0
+      },
+      {
+        "order_k": 2,
+        "power_sum_A": 7.45799893759333,
+        "power_sum_B": 7.45799893759333,
+        "delta_power_sum": 0.0,
+        "elementary_A": 14.271000531203335,
+        "elementary_B": 14.271000531203335,
+        "delta_elementary": 0.0
+      },
+      {
+        "order_k": 3,
+        "power_sum_A": 10.523151195169218,
+        "power_sum_B": 10.332200270348608,
+        "delta_power_sum": 0.19095092482061027,
+        "elementary_A": 17.133720252276415,
+        "elementary_B": 17.070069944002878,
+        "delta_elementary": 0.06365030827353735
+      },
+      {
+        "order_k": 4,
+        "power_sum_A": 16.217978381207125,
+        "power_sum_B": 15.3150725250069,
+        "delta_power_sum": 0.9029058562002241,
+        "elementary_A": 10.822535875839586,
+        "elementary_B": 10.666360490248422,
+        "delta_elementary": 0.15617538559116362
+      },
+      {
+        "order_k": 5,
+        "power_sum_A": 26.610781349341504,
+        "power_sum_B": 23.80745578364509,
+        "delta_power_sum": 2.803325565696415,
+        "elementary_A": 3.326151034966073,
+        "elementary_B": 3.2114911229442256,
+        "delta_elementary": 0.11465991202184744
+      },
+      {
+        "order_k": 6,
+        "power_sum_A": 45.56307427740499,
+        "power_sum_B": 38.31682485555997,
+        "delta_power_sum": 7.246249421845022,
+        "elementary_A": 0.36633493692494074,
+        "elementary_B": 0.34285408837013875,
+        "delta_elementary": 0.02348084855480198
+      }
+    ],
+    "det_A_direct": 0.3663349369249462,
+    "det_B_direct": 0.34285408837013925,
+    "det_A_from_e_n": 0.36633493692494074,
+    "det_B_from_e_n": 0.34285408837013875
+  },
+  "registered_checks": {
+    "P9A_local_determinant_is_minus4a2": true,
+    "P9B_rank_boundary_operator_error_is_quadratic": true,
+    "P9C_one_percent_extra_error_can_flip_determinant_sign": true,
+    "P9D_e1_e2_homometric_tie": true,
+    "P9E_e3_escapes_pair_tie": true,
+    "P9F_full_determinant_is_top_elementary_invariant": true
+  },
+  "all_registered_checks_pass": true
+}
