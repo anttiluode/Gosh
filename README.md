@@ -6,282 +6,367 @@ An intentionally silly name for a serious falsification workflow around Riemann-
 >
 > Turn an intuition into a small mathematical gate, register what would kill it, and keep the negative result when it dies.
 
+`main` is the map. Derivations, experiments and receipts live on branches.
+
 ## Why this repo exists
 
-Two unrelated lines collided:
+Two lines collided:
 
-1. **Claude / Alpöge–Furman (August 2026):** a rank–trace / inertia argument proves that more than two thirds of zeta zeros are simple and on the critical line by turning prime-side trace information into constraints on the negative directions of a finite Hermitian compression.
-2. **AnttisBrain2 / HorizonNet (July 2026):** an apparently infinite hall of mirror moons needed only four visible bounces because deeper structure fell below the observer's resolution. HorizonNet later supplied the correction: the useful horizon belongs in the **observer / decision**, not automatically in the internal state.
+- **Alpöge–Furman / Claude (August 2026):** prime-side trace information is converted into constraints on the inertia of a finite Hermitian zero-side compression, proving that more than two thirds of zeta zeros are simple and on the critical line.
+- **AnttisBrain2 / HorizonNet:** an apparently infinite mirror recursion became finite-to-observer because deeper structure fell below a resolution threshold. HorizonNet later supplied the correction: a useful horizon belongs in the **observer / decision**, not automatically in the internal state.
 
-So `Gosh` does **not** ask whether four terms solve an infinite zeta series. They do not. It asks:
+The question is not `four terms = infinity`. It is:
 
-> **Can an observation horizon make more arithmetic / spectral information finite-to-certificate without erasing the structure that matters?**
+> **Can infinite arithmetic / spectral structure become finite-to-certificate because the omitted information is too small or too coarse to change the decision?**
 
 ## Branch map
 
 ```text
 main
 │
-└── sol/gate0-moon-horizon
-      Gate 0A  raw-series contraction                      KILLED
-      Gate 0B  Fredholm / Neumann zero-wall               VERIFIED NEGATIVE
-      Gate 0C  certificate-space spectral horizon         WORKS IN TOY
-      │
-      └── sol/gate1-contracting-bandwidth
-            homometric pair attacker                      PASSES
-            pair data tied at every bandwidth
-            coarse higher closed-walk moments separate
-            prior-art check: restricted support is known
-            │
-            └── sol/gate2-mixed-aperture-walks
-                  mixed two-leg pair control              TIES AS REQUIRED
-                  fixed-budget fourth walk                SEPARATES
-                  asymmetric aperture allocation          2.386x TOY GAIN
-                  prior-art check: unequal supports known
-                  │
-                  └── next: explicit-formula mixed-moment audit
+├── sol/gate0-moon-horizon
+│     raw zeta contraction                         KILLED
+│     Fredholm/Neumann contraction at a zero       KILLED / ZERO WALL
+│     spectral-margin inertia horizon              WORKS IN TOY
+│
+├── sol/gate1-contracting-bandwidth
+│     homometric pair defeats all pair data        VERIFIED
+│     coarse higher closed-walk moments separate   VERIFIED
+│
+├── sol/gate2-mixed-aperture-walks
+│     mixed two-leg homometric control             TIES AS REQUIRED
+│     fourth mixed walk separates                  VERIFIED
+│     unequal allocation beats equal in toy        2.386x TOY GAIN
+│
+└── sol/gate3-laguerre-horizon
+      Clockfield valley identified as L1            CLASSICAL / CORRECTED
+      Fable L1-passing fake caught by L2            VERIFIED
+      local Laguerre detection depth ~ a*k          SYNTHETIC TOY
+      Poisson bandlimit depends on a*B               VERIFIED
+      Gate2b extreme edge-loading extrapolation      KILLED
+      Laguerre/Poisson -> AF inertia embedding        OPEN
 ```
+
+---
 
 # Gate 0 — the moons do not truncate zeta
 
 Branch: [`sol/gate0-moon-horizon`](../../tree/sol/gate0-moon-horizon)
 
-Detailed note: [`notes/gate0_moon_horizon.md`](../../blob/sol/gate0-moon-horizon/notes/gate0_moon_horizon.md)
+- [`notes/gate0_moon_horizon.md`](../../blob/sol/gate0-moon-horizon/notes/gate0_moon_horizon.md)
+- [`experiments/gate0_horizon_wall.py`](../../blob/sol/gate0-moon-horizon/experiments/gate0_horizon_wall.py)
+- [`results/gate0_horizon_wall.json`](../../blob/sol/gate0-moon-horizon/results/gate0_horizon_wall.json)
 
-Experiment: [`experiments/gate0_horizon_wall.py`](../../blob/sol/gate0-moon-horizon/experiments/gate0_horizon_wall.py)
+### Result
 
-Receipt: [`results/gate0_horizon_wall.json`](../../blob/sol/gate0-moon-horizon/results/gate0_horizon_wall.json)
-
-### 0A — raw critical-line series: killed
-
-For `a_n = n^(-1/2-it)`,
+For the critical-line Dirichlet terms,
 
 ```text
 |a_(n+1)| / |a_n| = sqrt(n/(n+1)) -> 1.
 ```
 
-There is no fixed contraction factor below one, and `sum_p p^-1/2` is not absolutely convergent. A universal `four terms = infinity` rule is unavailable. Approximate functional equations / Riemann–Siegel are the legitimate number-theory version of a finite horizon, and their depth grows with height.
+There is no universal AnttisBrain-style geometric contraction and no fixed `four = infinity` truncation.
 
-### 0B — a contracting determinant hits a zero wall
-
-If
+A Fredholm/Neumann formulation also meets an exact wall: if
 
 ```text
-D(s) = det(I - L_s)
+D(s)=det(I-L_s)
 ```
 
-and `||L_s|| < 1`, Neumann / trace-log tails admit geometric bounds. But `D(s)=0` requires `1` in the spectrum of `L_s`, so the contraction condition fails at the zero itself.
+vanishes, then `1` is in the spectrum of `L_s`; a uniform `||L_s||<1` certificate cannot survive at the zero it is meant to detect.
 
-Toy receipt at error `1e-6`:
+The surviving transplant is **decision-space truncation**. If
 
 ```text
-rho=.8   -> K=69
-rho=.9   -> K=152
-rho=.99  -> K=1832
-rho=.999 -> K=20712
-rho=1    -> no geometric certificate
+||G-G_K||_op <= delta
 ```
 
-A contraction certificate can certify an invertible / zero-free region. It does not breach the zero.
-
-### 0C — the useful transplant is a decision horizon
-
-For Hermitian `G`, if a truncation `G_K` obeys
+and every computed eigenvalue of the Hermitian `G_K` is farther than `delta` from zero, Weyl perturbation freezes the inertia. The omitted infinity need not vanish; it merely cannot change the sign decision.
 
 ```text
-||G - G_K||_op <= delta_K
+AnttisBrain2: omitted image < one-pixel decision threshold
+Gosh:         omitted operator < eigenvalue sign margin
 ```
 
-and
+Toy verdict: works; the accidental number four disappears.
 
-```text
-min_j |lambda_j(G_K)| > delta_K,
-```
+---
 
-Weyl perturbation says the omitted tail cannot move an eigenvalue through zero. The inertia is already fixed.
-
-```text
-AnttisBrain2: omitted image structure < visual resolution
-Gosh:         omitted operator tail  < spectral sign margin
-```
-
-The deterministic infinite Hermitian toy certifies the long-sum inertia after only `K=2`. **Four disappears; the observation-margin principle survives.** This is standard perturbation theory used as an instrument, not a Riemann result.
-
-# Gate 1 — lower resolution can still carry higher-order structure
+# Gate 1 — pair information is not higher-order information
 
 Branch: [`sol/gate1-contracting-bandwidth`](../../tree/sol/gate1-contracting-bandwidth)
 
-Detailed note: [`notes/gate1_contracting_bandwidth.md`](../../blob/sol/gate1-contracting-bandwidth/notes/gate1_contracting_bandwidth.md)
+- [`notes/gate1_contracting_bandwidth.md`](../../blob/sol/gate1-contracting-bandwidth/notes/gate1_contracting_bandwidth.md)
+- [`experiments/gate1_contracting_bandwidth.py`](../../blob/sol/gate1-contracting-bandwidth/experiments/gate1_contracting_bandwidth.py)
+- [`results/gate1_contracting_bandwidth.json`](../../blob/sol/gate1-contracting-bandwidth/results/gate1_contracting_bandwidth.json)
 
-Experiment: [`experiments/gate1_contracting_bandwidth.py`](../../blob/sol/gate1-contracting-bandwidth/experiments/gate1_contracting_bandwidth.py)
-
-Receipt: [`results/gate1_contracting_bandwidth.json`](../../blob/sol/gate1-contracting-bandwidth/results/gate1_contracting_bandwidth.json)
-
-The attacker is a non-congruent **homometric pair**:
+Attacker:
 
 ```text
 A = {0,1,4,10,12,17}
 B = {0,1,8,11,13,17}
 ```
 
-They have exactly the same multiset of pairwise distances. Consequently every translation-invariant pair statistic ties, including `tr(G)` and `tr(G^2)` for
+These two sets are homometric: they have the same multiset of pairwise distances. Consequently every translation-invariant pair statistic ties at every bandwidth.
+
+For
 
 ```text
-G_ij = sinc(theta * (x_i - x_j)).
+G_ij = sinc(theta (x_i-x_j)),
 ```
 
-Higher traces escape pair data because they count closed walks rather than a bag of edges.
-
-At `theta=0.4`:
+at `theta=0.4`:
 
 ```text
-|Δ tr(G^2)|  ≈ 1.8e-15
-|Δ tr(G^3)|  ≈ 0.19095
-|Δ tr(G^4)|  ≈ 0.90291
+|Δ tr(G^2)|  ~ 1.8e-15
+|Δ tr(G^3)|  ~ 0.19095
+|Δ tr(G^4)|  ~ 0.90291
 ```
 
-So coarse higher-order information can contain something that even perfectly sharp pair-distance information cannot contain.
+A bag of edges does not specify how the edges assemble into closed walks.
 
-### Prior-art correction
+### Prior-art stop line
 
-`higher moment -> narrower Fourier support` is **not new**. Restricted-support n-level correlation is established territory, especially Rudnick–Sarnak. Claude's own higher-moment discussion runs into that arithmetic support wall.
+`higher correlation order -> restricted Fourier support` is established analytic-number-theory territory. This gate claims only an information-theoretic toy result, not a new support theorem.
 
-The surviving question became whether several resolutions can constrain the **same latent zero configuration** jointly.
+---
 
-# Gate 2 — spend resolution unevenly around the closed walk
+# Gate 2 — where the resolution is spent matters
 
 Branch: [`sol/gate2-mixed-aperture-walks`](../../tree/sol/gate2-mixed-aperture-walks)
 
-Detailed note: [`notes/gate2_mixed_aperture_walks.md`](../../blob/sol/gate2-mixed-aperture-walks/notes/gate2_mixed_aperture_walks.md)
+- [`notes/gate2_mixed_aperture_walks.md`](../../blob/sol/gate2-mixed-aperture-walks/notes/gate2_mixed_aperture_walks.md)
+- [`experiments/gate2_mixed_aperture_walks.py`](../../blob/sol/gate2-mixed-aperture-walks/experiments/gate2_mixed_aperture_walks.py)
+- [`results/gate2_mixed_aperture_walks.json`](../../blob/sol/gate2-mixed-aperture-walks/results/gate2_mixed_aperture_walks.json)
 
-Experiment: [`experiments/gate2_mixed_aperture_walks.py`](../../blob/sol/gate2-mixed-aperture-walks/experiments/gate2_mixed_aperture_walks.py)
-
-Receipt: [`results/gate2_mixed_aperture_walks.json`](../../blob/sol/gate2-mixed-aperture-walks/results/gate2_mixed_aperture_walks.json)
-
-Instead of one aperture, form a mixed closed walk
+Use a mixed closed walk
 
 ```text
-tr(G_theta1 G_theta2 G_theta3 G_theta4).
+tr(G_t1 G_t2 G_t3 G_t4)
 ```
 
-All factors still see the same latent configuration.
+with the same hidden configuration feeding every factor.
 
-The homometric pair supplies a strong control: **every mixed two-leg trace ties**, even with unequal apertures, because it still depends only on pairwise distances.
-
-Representative checks:
+All mixed two-leg traces still tie for the homometric attacker. At fixed toy aperture budget
 
 ```text
-(theta1,theta2)    |Δ mixed trace|
-(.8,.8)             8.9e-16
-(1.0,.6)            0
-(.7,.1)             0
-(.95,.05)           8.9e-16
+t1+t2+t3+t4 = 1.6,
 ```
 
-Now fix a fourth-order toy aperture budget
+equal allocation gives
 
 ```text
-theta1 + theta2 + theta3 + theta4 = 1.6
-0.05 <= theta_i <= 1.0.
+(.40,.40,.40,.40) -> 0.9029058562 separation,
 ```
 
-Equal allocation:
+while the `0.05` grid found
 
 ```text
-(.4,.4,.4,.4) -> separation 0.9029058562
+(.70,.05,.70,.15) -> 2.1541721037 separation.
 ```
 
-Exhaustive `0.05`-grid search, same total budget:
+That is a `2.3858x` toy gain without increasing total aperture.
+
+### Prior-art stop line
+
+Unequal test functions / supports are known. What remains project-specific is only the proposed weld to the 2026 rank-trace/inertia architecture.
+
+---
+
+# Gate 3 — Clockfield's valley has an infinite depth coordinate
+
+Branch: [`sol/gate3-laguerre-horizon`](../../tree/sol/gate3-laguerre-horizon)
+
+- [`notes/gate3_laguerre_horizon.md`](../../blob/sol/gate3-laguerre-horizon/notes/gate3_laguerre_horizon.md)
+- [`experiments/gate3_laguerre_horizon.py`](../../blob/sol/gate3-laguerre-horizon/experiments/gate3_laguerre_horizon.py)
+- [`results/gate3_laguerre_horizon.json`](../../blob/sol/gate3-laguerre-horizon/results/gate3_laguerre_horizon.json)
+
+This gate reopens [`anttiluode/ClockfieldRiemann`](https://github.com/anttiluode/ClockfieldRiemann), but uses Fable's later correction rather than the old headline.
+
+The original valley condition is the first generalized Laguerre inequality for
 
 ```text
-(.70,.05,.70,.15) -> separation 2.1541721037
+Xi(t)=xi(1/2+i t).
 ```
 
-That is a **2.3858x** larger distinction between the same two homometric configurations without increasing the total toy aperture.
-
-The toy says only this:
-
-> **where resolution is spent around a higher-order closed walk can matter as much as how much total resolution is available.**
-
-### Prior-art correction again
-
-Using different test functions / unequal Fourier supports is also not ours. There is existing n-level-density work where asymmetric test-function supports genuinely extend accessible ranges in families of L-functions. `Gosh` keeps this as precedent, not novelty.
-
-What remains specific to this project is the proposed weld to the **rank–trace / inertia** framework.
-
-# Why the zero-side structure makes this at least coherent
-
-The 2026 formalization writes an on-line zero as a positive rank-one contribution. An off-line reflected pair with evaluation vector `u=x+iy` contributes
+Classically,
 
 ```text
-m(uu^T + conjugate(u) conjugate(u)^T)
-    = 2m(xx^T - yy^T).
+|f(x+i y)|^2 = sum_n L_n(f;x) y^(2n).
 ```
 
-Different test-function apertures therefore produce different evaluation vectors of the **same on-line/off-line block configuration**. That is the common latent object a multi-aperture certificate would have to exploit.
-
-The toy has not supplied the arithmetic side.
-
-# Next target — explicit-formula mixed-moment audit
-
-No more aperture optimization yet.
-
-The next gate should take the actual 2026 normalization and symbolically expand, in order:
+Since
 
 ```text
-tr(G_a G_b)                 # sanity check / pair case
-tr(G_a G_b G_c G_d)         # first interesting mixed walk
+xi(1/2+a+i t)=Xi(t-i a),
 ```
 
-For each term it should identify:
+the `L_n(Xi;t)` are literally the successive transverse coefficients of the old Clockfield landscape.
 
-1. the zero-side block expression;
-2. the corresponding explicit-formula / prime-side expression;
-3. the exact Fourier-support region;
-4. whether existing unconditional correlation theorems cover it;
-5. which unresolved prime correlations appear if they do not.
+`L_1` is the valley curvature. The **whole** Laguerre hierarchy is the classical real-zero / Laguerre-Polya criterion. Therefore the old repo did not find a one-inequality RH equivalence; it independently landed on the first rung of an already-known infinite ladder.
 
-Possible endings are all acceptable:
+## Gate 3A — Fable's counterexample passes L1 and fails L2
 
-- **known + sufficient:** plug the theorem into a finite extremal/inertia problem;
-- **known + too weak:** clean negative;
-- **Hardy–Littlewood wall again:** write down exactly where it reappears and stop.
+Fable's strip-interior attacker is
 
-That is now the actual gamble.
+```text
+f(z)=cos(kz)(z^2+a^2),
+k=pi/0.8,
+a=0.4.
+```
 
-## Why higher moments are tempting — and why the wall is real
+It contains a nonreal pair `z=+-ia` but has positive first Laguerre difference over the tested real interval.
 
-Claude's paper explicitly identifies higher Gram moments as a conditional route to stronger constants. Under a Hardy–Littlewood-type higher-correlation input, fourth-order information gives `13/18 ≈ 72.22%` simple on-line zeros; sufficiently rich moment information drives that counting mechanism toward 100% simple/on-line zeros, still without proving RH.
+Gate 3 reproduces:
 
-Unconditionally, higher-order correlation is restricted by arithmetic support. `Gosh` therefore needs an analytic support accounting, not another RMT-looking numerical experiment.
+```text
+min L1 on [0,40] = +0.0747841760.
+```
 
-## Stop lines
+At the symmetry point, with `q=(ak)^2`, the next coefficients are exact:
 
-- the **same latent zero/block configuration** feeds every aperture;
-- off-line reflected/conjugate blocks are represented explicitly;
-- no random-matrix average replaces a worst-case inequality;
-- no numerical zero data substitutes for a prime-side theorem;
-- unconditional and Hardy–Littlewood-conditional inputs stay separate;
-- toy `sum theta` is never silently identified with the theorem's Fourier support;
-- if the useful mixed fourth moment requires exactly the unresolved correlation already named in Claude's paper, record the wall rather than renaming it.
+```text
+L1(0)=a^2(q-2),
+L2(0)=q^2/3 - 2q + 1.
+```
 
-## Related PerceptionLab repos
+For Fable's parameters:
 
-- `AnttisBrain2` — four-bounce resolution horizon.
-- `HorizonNet` — correction: horizon belongs to the observer / decision margin.
-- `HilbertPolyaReintepretation` — prime loops / trace-log / closed-walk language; its realizability lemma remains the cliff.
-- `Alkuluku` — generic RMT statistics are cheap; arithmetic prime structure must survive the representation.
-- `Nuoli` — Hermitian broken-time-reversal mechanics can produce GUE statistics without solving the arithmetic problem.
+```text
+ak = pi/2
+L1(0) = +0.0747841760
+L2(0) = -1.9054461373
+```
 
-## Ledger
+The counterexample that kills the first-valley equivalence is itself caught one transverse level deeper.
 
-**Known mathematics being reused:** approximate functional equations, Riemann–Siegel truncation, Neumann/Fredholm expansions, Weyl perturbation, Sylvester inertia, restricted-support n-level correlation, mixed test functions, Gram trace moments.
+## Gate 3B — no fixed Laguerre depth in the synthetic family
 
-**Verified here:** raw fixed-depth zeta contraction fails; a determinant contraction horizon degenerates at its zero; spectral-margin truncation can freeze inertia; homometric configurations defeat all pair-distance information while higher closed-walk moments distinguish them; under a fixed toy aperture budget, asymmetric fourth-order allocation can be substantially more discriminative than equal allocation.
+For `n>=3`, the sign at the symmetry point depends only on `q=(ak)^2`:
 
-**Not verified:** that the useful mixed higher moment is unconditionally available on the zeta prime side; that it yields a stronger worst-case inertia inequality; any improved zero proportion.
+```text
+R_n(q)=1 - 8q/B + 16q^2/(A B),
+A=(2n)(2n-1),
+B=(2n-2)(2n-3).
+```
 
-**Forbidden headline:** `four terms approximate the Riemann zeta function`.
+The negative band is centered asymptotically near `q ~ n^2`, so the local detection order naturally scales like
+
+```text
+n ~ a k.
+```
+
+The receipt walks from first failure at order `2` for `ak=1.57` to order `29` for `ak=31.62`.
+
+This is a synthetic local result, not a theorem about Xi. It is an attacker against any generic fixed-order `four = infinity` claim.
+
+## Gate 3C — Poisson smoothing gives a real observation variable
+
+For one off-line reflected pair the normalized log-curvature kernel has Fourier multiplier
+
+```text
+exp(-2 pi a |freq|).
+```
+
+With observer bandwidth `B`, normalized quantities collapse to the dimensionless product
+
+```text
+x = a B.
+```
+
+Claude's proposed
+
+```text
+1-E_B(a)/E_B(0)
+```
+
+has the correct small-`x` law
+
+```text
+3 pi x + O(x^2),
+```
+
+but it is **energy attenuation**, not a metric distance.
+
+The actual normalized squared L2 distance between the `a=0` and `a>0` signatures is
+
+```text
+(12 pi^2/5) x^2 + O(x^3).
+```
+
+So `aB` is a genuine resolution coordinate, but different observers have different near-line sensitivity laws.
+
+## Gate 3D — extreme edge loading dies
+
+Claude predicted Gate 2 should improve further near two huge / two blind legs. It does not:
+
+```text
+(.70,.05,.70,.15) -> 2.154172
+(.78,.02,.78,.02) -> 0.217089
+(.79,.01,.79,.01) -> 0.039908
+(.80,.00,.80,.00) -> ~7e-15
+```
+
+At the blind-leg limit the statistic collapses back to pair information and homometry wins. The tiny legs are part of the informative closed walk, not disposable slack.
+
+---
+
+# The open weld
+
+We now have three views of the **same kind of hidden zero geometry**:
+
+```text
+Weil / Gram compression       -> traces, inertia, arithmetic support
+transverse Xi expansion       -> L1, L2, L3, ...
+Poisson curvature response    -> displacement x observer-bandwidth
+```
+
+What is **not** known in this project is the arrow that matters:
+
+```text
+finite / smoothed Laguerre or curvature information
+                     |
+                     v   ?
+prime-side computable Hermitian constraint
+                     |
+                     v
+stronger positive-index / simple-zero certificate
+```
+
+A likely death is that `L2,L3,...` require exactly the nonlinear/higher prime correlations that already block higher Gram moments. If so, the correct output is the exact missing arithmetic estimate, not another name for the wall.
+
+## Next gate
+
+No more pretty zero plots and no more aperture searches first.
+
+Take **the lowest genuinely new Laguerre layer, `L2`**, and ask:
+
+1. can a smoothed/localized `L2` observable be written in explicit-formula language;
+2. what prime-side sums appear;
+3. what Fourier support do they require;
+4. are those sums unconditional in any useful support range;
+5. can the resulting quantity constrain the same off-line `2m(xx^T-yy^T)` blocks used in the 2026 inertia proof?
+
+If the answer dies at Hardy-Littlewood-type correlation, write that wall down and stop.
+
+## Related repos
+
+- `ClockfieldRiemann` — the old valley; Fable's audit relocates it to the first Laguerre inequality.
+- `AnttisBrain2` — source of the resolution-horizon intuition.
+- `HorizonNet` — correction: the horizon belongs to the observer/decision.
+- `HilbertPolyaReintepretation` — closed-walk / trace-log language; realizability remains the cliff.
+- `Alkuluku` — prime trace is the discriminator; generic RMT statistics are cheap.
+- `Nuoli` — symmetry-class mechanics, not arithmetic.
+
+## Standing stop lines
+
+- no claim that the Laguerre hierarchy is new;
+- no claim that `L1 >= 0` is equivalent to RH;
+- no numerical zero data substituted for a prime-side theorem;
+- no toy aperture budget silently identified with rigorous Fourier support;
+- no random-matrix average substituted for a configuration-wise inequality;
+- unconditional and Hardy-Littlewood-conditional inputs remain separate;
+- no improved zeta-zero proportion is claimed until an end-to-end inequality exists.
 
 ---
 
