@@ -1,0 +1,52 @@
+{
+  "gate": "gate10-positive-type-crowding",
+  "status": "positive_type_alone_does_not_exclude_spectral_crowding",
+  "kernel": {
+    "name": "normalized Montgomery-Taylor overlap",
+    "integral": "K(x)=int_{-1/2}^{1/2} cos(sqrt(2)t) cos(2*pi*x*t) dt",
+    "stable_formula": "K(x)=0.5[sinc(x-c/pi)+sinc(x+c/pi)], c=1/sqrt(2)",
+    "K0": 0.9187253698655684,
+    "spectral_density_positive_on_support": true,
+    "spectral_second_moment": 0.07749929632331752,
+    "predicted_two_point_quadratic_coefficient": 1.5297747921478857
+  },
+  "two_point_crowding": {
+    "exact_eigenvalues": "1 +/- k(d)",
+    "small_d_law": "2-lambda_plus = 1-k(d) = 2*pi^2*E[t^2]*d^2 + O(d^4)",
+    "rows": [
+      {"separation_d": 0.1, "k_d": 0.9847751656468197, "lambda_minus": 0.015224834353180339, "lambda_plus": 1.9847751656468198, "distance_lambda_plus_to_2": 0.015224834353180228, "distance_to_2_over_d2": 1.5224834353180225, "psi_trace": 1.9395642537494424},
+      {"separation_d": 0.03, "k_d": 0.9986237945280184, "lambda_minus": 0.0013762054719815286, "lambda_plus": 1.9986237945280183, "distance_lambda_plus_to_2": 0.0013762054719816952, "distance_to_2_over_d2": 1.5291171910907724, "psi_trace": 1.9944989659950758},
+      {"separation_d": 0.01, "k_d": 0.9998470298288172, "lambda_minus": 0.00015297017118276468, "lambda_plus": 1.9998470298288171, "distance_lambda_plus_to_2": 0.0001529701711828757, "distance_to_2_over_d2": 1.529701711828757, "psi_trace": 1.9993881661150152},
+      {"separation_d": 0.003, "k_d": 0.9999862320860674, "lambda_minus": 1.3767913932594134e-05, "lambda_plus": 1.9999862320860675, "distance_lambda_plus_to_2": 1.3767913932483111e-05, "distance_to_2_over_d2": 1.5297682147203457, "psi_trace": 1.9999449287233808},
+      {"separation_d": 0.001, "k_d": 0.9999984702259388, "lambda_minus": 1.5297740612596478e-06, "lambda_plus": 1.9999984702259388, "distance_lambda_plus_to_2": 1.5297740612041366e-06, "distance_to_2_over_d2": 1.5297740612041366, "psi_trace": 1.9999938809084357},
+      {"separation_d": 0.0003, "k_d": 0.9999998623202746, "lambda_minus": 1.3767972539824314e-07, "lambda_plus": 1.9999998623202746, "distance_lambda_plus_to_2": 1.3767972539824314e-07, "distance_to_2_over_d2": 1.5297747266471462, "psi_trace": 1.9999994492811364},
+      {"separation_d": 0.0001, "k_d": 0.9999999847022523, "lambda_minus": 1.5297747790743443e-08, "lambda_plus": 1.9999999847022523, "distance_lambda_plus_to_2": 1.5297747735232292e-08, "distance_to_2_over_d2": 1.5297747735232292, "psi_trace": 1.9999999388090095}
+    ]
+  },
+  "multi_point_clusters": [
+    {"points": 2, "spacing_eps": 0.1, "smallest_eigenvalue": 0.015224834353180339, "second_largest_eigenvalue": 0.015224834353180339, "largest_eigenvalue": 1.9847751656468198, "largest_eigenvalue_distance_to_m": 0.015224834353180228, "psi_trace": 1.9395642537494424},
+    {"points": 2, "spacing_eps": 0.03, "smallest_eigenvalue": 0.0013762054719815286, "second_largest_eigenvalue": 0.0013762054719815286, "largest_eigenvalue": 1.9986237945280183, "largest_eigenvalue_distance_to_m": 0.0013762054719816952, "psi_trace": 1.9944989659950758},
+    {"points": 2, "spacing_eps": 0.01, "smallest_eigenvalue": 0.00015297017118276468, "second_largest_eigenvalue": 0.00015297017118276468, "largest_eigenvalue": 1.9998470298288171, "largest_eigenvalue_distance_to_m": 0.0001529701711828757, "psi_trace": 1.9993881661150152},
+    {"points": 2, "spacing_eps": 0.003, "smallest_eigenvalue": 1.3767913932594134e-05, "second_largest_eigenvalue": 1.3767913932594134e-05, "largest_eigenvalue": 1.9999862320860675, "largest_eigenvalue_distance_to_m": 1.3767913932483111e-05, "psi_trace": 1.9999449287233808},
+    {"points": 3, "spacing_eps": 0.1, "smallest_eigenvalue": 0.000137195976004792, "second_largest_eigenvalue": 0.060032413350820595, "largest_eigenvalue": 2.9398303906731753, "largest_eigenvalue_distance_to_m": 0.06016960932682469, "psi_trace": 4.76292547216816},
+    {"points": 3, "spacing_eps": 0.03, "smallest_eigenvalue": 1.1047954824285414e-06, "second_largest_eigenvalue": 0.005497725693559866, "largest_eigenvalue": 2.9945011695109574, "largest_eigenvalue_distance_to_m": 0.00549883048904265, "psi_trace": 4.978034903032852},
+    {"points": 3, "spacing_eps": 0.01, "smallest_eigenvalue": 1.3632272864165628e-08, "second_largest_eigenvalue": 0.0006117929965059044, "largest_eigenvalue": 2.999388193371221, "largest_eigenvalue_distance_to_m": 0.0006118066287790214, "psi_trace": 4.997553147775555},
+    {"points": 3, "spacing_eps": 0.003, "smallest_eigenvalue": 1.1041492315519563e-10, "second_largest_eigenvalue": 5.507094538105762e-05, "largest_eigenvalue": 2.999944928944204, "largest_eigenvalue_distance_to_m": 5.507105579605209e-05, "psi_trace": 4.999779718809625},
+    {"points": 4, "spacing_eps": 0.1, "smallest_eigenvalue": 1.0552274894720745e-06, "second_largest_eigenvalue": 0.14710530365410732, "largest_eigenvalue": 3.8520731753738215, "largest_eigenvalue_distance_to_m": 0.14792682462617845, "psi_trace": 7.429933345023603},
+    {"points": 4, "spacing_eps": 0.03, "smallest_eigenvalue": 7.608077049541238e-10, "second_largest_eigenvalue": 0.013719520967823641, "largest_eigenvalue": 3.9862738512267657, "largest_eigenvalue_distance_to_m": 0.013726148773234303, "psi_trace": 7.9452836302065695},
+    {"points": 4, "spacing_eps": 0.01, "smallest_eigenvalue": 1.0422925509932772e-12, "second_largest_eigenvalue": 0.0015291756421221116, "largest_eigenvalue": 3.9984707425655386, "largest_eigenvalue_distance_to_m": 0.0015292574344614174, "psi_trace": 7.993885308640304},
+    {"points": 4, "spacing_eps": 0.003, "smallest_eigenvalue": 8.15614336107431e-16, "second_largest_eigenvalue": 0.00013767487727416958, "largest_eigenvalue": 3.999862324460238, "largest_eigenvalue_distance_to_m": 0.00013767553976196112, "psi_trace": 7.9994493167953244},
+    {"points": 6, "spacing_eps": 0.1, "smallest_eigenvalue": 5.291321842966043e-11, "second_largest_eigenvalue": 0.48638325353266154, "largest_eigenvalue": 5.506003672566036, "largest_eigenvalue_distance_to_m": 0.4939963274339636, "psi_trace": 12.26064074354861},
+    {"points": 6, "spacing_eps": 0.03, "smallest_eigenvalue": 2.467562090626751e-16, "second_largest_eigenvalue": 0.047771364541023376, "largest_eigenvalue": 5.952166802447194, "largest_eigenvalue_distance_to_m": 0.047833197552805906, "psi_trace": 13.810949316878819},
+    {"points": 6, "spacing_eps": 0.01, "smallest_eigenvalue": -4.741494965913833e-16, "second_largest_eigenvalue": 0.0053490475975739435, "largest_eigenvalue": 5.994650189041981, "largest_eigenvalue_distance_to_m": 0.005349810958018786, "psi_trace": 13.978629368478707},
+    {"points": 6, "spacing_eps": 0.003, "smallest_eigenvalue": 1.2293526921573503e-18, "second_largest_eigenvalue": 0.0004818372096513555, "largest_eigenvalue": 5.999518156607156, "largest_eigenvalue_distance_to_m": 0.0004818433928441834, "psi_trace": 13.998072858595716}
+  ],
+  "registered_checks": {
+    "P10A_kernel_normalized": true,
+    "P10B_two_point_upper_eigenvalue_approaches_2": true,
+    "P10C_quadratic_coefficient_matches_spectral_moment": true,
+    "P10D_cluster_top_eigenvalue_approaches_cluster_size": true,
+    "P10E_two_point_gram_is_psd": true
+  },
+  "all_registered_checks_pass": true
+}
