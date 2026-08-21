@@ -33,7 +33,13 @@ main
             coarse higher closed-walk moments separate
             prior-art check: restricted support is known
             │
-            └── next target: joint multi-aperture certificate
+            └── sol/gate2-mixed-aperture-walks
+                  mixed two-leg pair control              TIES AS REQUIRED
+                  fixed-budget fourth walk                SEPARATES
+                  asymmetric aperture allocation          2.386x TOY GAIN
+                  prior-art check: unequal supports known
+                  │
+                  └── next: explicit-formula mixed-moment audit
 ```
 
 # Gate 0 — the moons do not truncate zeta
@@ -54,7 +60,7 @@ For `a_n = n^(-1/2-it)`,
 |a_(n+1)| / |a_n| = sqrt(n/(n+1)) -> 1.
 ```
 
-There is no fixed contraction factor below one, and `sum_p p^-1/2` is not absolutely convergent. A universal `four terms = infinity` rule is therefore unavailable. Approximate functional equations / Riemann–Siegel are the legitimate number-theory version of a finite horizon, and their depth grows with height.
+There is no fixed contraction factor below one, and `sum_p p^-1/2` is not absolutely convergent. A universal `four terms = infinity` rule is unavailable. Approximate functional equations / Riemann–Siegel are the legitimate number-theory version of a finite horizon, and their depth grows with height.
 
 ### 0B — a contracting determinant hits a zero wall
 
@@ -80,7 +86,7 @@ A contraction certificate can certify an invertible / zero-free region. It does 
 
 ### 0C — the useful transplant is a decision horizon
 
-For Hermitian `G`, if a truncation `G_K` has a rigorous tail bound
+For Hermitian `G`, if a truncation `G_K` obeys
 
 ```text
 ||G - G_K||_op <= delta_K
@@ -93,8 +99,6 @@ min_j |lambda_j(G_K)| > delta_K,
 ```
 
 Weyl perturbation says the omitted tail cannot move an eigenvalue through zero. The inertia is already fixed.
-
-That is the spectral equivalent of `below one pixel`:
 
 ```text
 AnttisBrain2: omitted image structure < visual resolution
@@ -120,15 +124,13 @@ A = {0,1,4,10,12,17}
 B = {0,1,8,11,13,17}
 ```
 
-They have exactly the same multiset of pairwise distances. Consequently, for every even translation-invariant kernel, pair-level Gram information such as `tr(G)` and `tr(G^2)` cannot distinguish them at any bandwidth.
-
-Using
+They have exactly the same multiset of pairwise distances. Consequently every translation-invariant pair statistic ties, including `tr(G)` and `tr(G^2)` for
 
 ```text
-G_ij = sinc(theta * (x_i - x_j)),
+G_ij = sinc(theta * (x_i - x_j)).
 ```
 
-that prediction holds to machine precision across the sweep. But higher traces — sums over closed triangles / longer walks — separate the configurations.
+Higher traces escape pair data because they count closed walks rather than a bag of edges.
 
 At `theta=0.4`:
 
@@ -138,71 +140,146 @@ At `theta=0.4`:
 |Δ tr(G^4)|  ≈ 0.90291
 ```
 
-So:
+So coarse higher-order information can contain something that even perfectly sharp pair-distance information cannot contain.
 
-> **coarse higher-order information can contain something that even perfectly sharp pair-distance information cannot contain, because a bag of edges does not specify how those edges assemble into closed walks.**
+### Prior-art correction
 
-This is the useful connection to the old Hilbert–Pólya / prime-loop language: `tr(G^k)` is a closed-walk sum.
+`higher moment -> narrower Fourier support` is **not new**. Restricted-support n-level correlation is established territory, especially Rudnick–Sarnak. Claude's own higher-moment discussion runs into that arithmetic support wall.
 
-## Important prior-art correction
+The surviving question became whether several resolutions can constrain the **same latent zero configuration** jointly.
 
-`higher moment -> narrower Fourier support` is **not a new principle**. Restricted-support n-level correlation is established territory, especially Rudnick–Sarnak. Claude's own higher-moment discussion sits against that arithmetic support wall.
+# Gate 2 — spend resolution unevenly around the closed walk
 
-The experiment therefore does **not** claim a new bandwidth law. What survives is only the architectural question:
+Branch: [`sol/gate2-mixed-aperture-walks`](../../tree/sol/gate2-mixed-aperture-walks)
 
-> **Can a sharp pair-level compression and a coarser higher-order compression constrain the same zero configuration jointly?**
+Detailed note: [`notes/gate2_mixed_aperture_walks.md`](../../blob/sol/gate2-mixed-aperture-walks/notes/gate2_mixed_aperture_walks.md)
 
-The homometric result shows such a combination is not information-theoretically redundant. It does not show that number theory supplies the required higher moment or that the two matrices can legally be combined in one inequality.
+Experiment: [`experiments/gate2_mixed_aperture_walks.py`](../../blob/sol/gate2-mixed-aperture-walks/experiments/gate2_mixed_aperture_walks.py)
+
+Receipt: [`results/gate2_mixed_aperture_walks.json`](../../blob/sol/gate2-mixed-aperture-walks/results/gate2_mixed_aperture_walks.json)
+
+Instead of one aperture, form a mixed closed walk
+
+```text
+tr(G_theta1 G_theta2 G_theta3 G_theta4).
+```
+
+All factors still see the same latent configuration.
+
+The homometric pair supplies a strong control: **every mixed two-leg trace ties**, even with unequal apertures, because it still depends only on pairwise distances.
+
+Representative checks:
+
+```text
+(theta1,theta2)    |Δ mixed trace|
+(.8,.8)             8.9e-16
+(1.0,.6)            0
+(.7,.1)             0
+(.95,.05)           8.9e-16
+```
+
+Now fix a fourth-order toy aperture budget
+
+```text
+theta1 + theta2 + theta3 + theta4 = 1.6
+0.05 <= theta_i <= 1.0.
+```
+
+Equal allocation:
+
+```text
+(.4,.4,.4,.4) -> separation 0.9029058562
+```
+
+Exhaustive `0.05`-grid search, same total budget:
+
+```text
+(.70,.05,.70,.15) -> separation 2.1541721037
+```
+
+That is a **2.3858x** larger distinction between the same two homometric configurations without increasing the total toy aperture.
+
+The toy says only this:
+
+> **where resolution is spent around a higher-order closed walk can matter as much as how much total resolution is available.**
+
+### Prior-art correction again
+
+Using different test functions / unequal Fourier supports is also not ours. There is existing n-level-density work where asymmetric test-function supports genuinely extend accessible ranges in families of L-functions. `Gosh` keeps this as precedent, not novelty.
+
+What remains specific to this project is the proposed weld to the **rank–trace / inertia** framework.
+
+# Why the zero-side structure makes this at least coherent
+
+The 2026 formalization writes an on-line zero as a positive rank-one contribution. An off-line reflected pair with evaluation vector `u=x+iy` contributes
+
+```text
+m(uu^T + conjugate(u) conjugate(u)^T)
+    = 2m(xx^T - yy^T).
+```
+
+Different test-function apertures therefore produce different evaluation vectors of the **same on-line/off-line block configuration**. That is the common latent object a multi-aperture certificate would have to exploit.
+
+The toy has not supplied the arithmetic side.
+
+# Next target — explicit-formula mixed-moment audit
+
+No more aperture optimization yet.
+
+The next gate should take the actual 2026 normalization and symbolically expand, in order:
+
+```text
+tr(G_a G_b)                 # sanity check / pair case
+tr(G_a G_b G_c G_d)         # first interesting mixed walk
+```
+
+For each term it should identify:
+
+1. the zero-side block expression;
+2. the corresponding explicit-formula / prime-side expression;
+3. the exact Fourier-support region;
+4. whether existing unconditional correlation theorems cover it;
+5. which unresolved prime correlations appear if they do not.
+
+Possible endings are all acceptable:
+
+- **known + sufficient:** plug the theorem into a finite extremal/inertia problem;
+- **known + too weak:** clean negative;
+- **Hardy–Littlewood wall again:** write down exactly where it reappears and stop.
+
+That is now the actual gamble.
 
 ## Why higher moments are tempting — and why the wall is real
 
 Claude's paper explicitly identifies higher Gram moments as a conditional route to stronger constants. Under a Hardy–Littlewood-type higher-correlation input, fourth-order information gives `13/18 ≈ 72.22%` simple on-line zeros; sufficiently rich moment information drives that counting mechanism toward 100% simple/on-line zeros, still without proving RH.
 
-Unconditionally, higher-order correlation is restricted by arithmetic support. So `Gosh` is not trying to calculate one more empirical moment. The next gate has to answer whether information at **different apertures** can meet in a valid worst-case certificate.
+Unconditionally, higher-order correlation is restricted by arithmetic support. `Gosh` therefore needs an analytic support accounting, not another RMT-looking numerical experiment.
 
-# Next target — the joint multi-aperture certificate
+## Stop lines
 
-Let one common zero / block configuration `Z` generate two Hermitian compressions:
-
-```text
-G_sharp(Z)    # large bandwidth, pair-level arithmetic known
-G_coarse(Z)   # narrower bandwidth, candidate higher moment
-```
-
-The next legitimate question is whether there exists a configuration-wise inequality combining quantities such as
-
-```text
-tr(G_sharp), tr(G_sharp^2), tr(G_coarse^2), tr(G_coarse^4)
-```
-
-that forces more on-line/simple structure than the sharp pair certificate alone.
-
-This must be attacked first on finite synthetic zero/off-line block configurations. If no joint inequality helps there, stop before doing any analytic number theory.
-
-### Stop lines
-
-- the **same latent configuration** must feed every aperture;
-- off-line reflected/conjugate blocks must be represented explicitly;
-- no random-matrix average may replace a worst-case inequality;
-- no numerical zero data may substitute for a prime-side theorem;
+- the **same latent zero/block configuration** feeds every aperture;
+- off-line reflected/conjugate blocks are represented explicitly;
+- no random-matrix average replaces a worst-case inequality;
+- no numerical zero data substitutes for a prime-side theorem;
 - unconditional and Hardy–Littlewood-conditional inputs stay separate;
-- if the useful fourth moment requires exactly the unresolved correlation already named in Claude's paper, record the wall rather than renaming it.
+- toy `sum theta` is never silently identified with the theorem's Fourier support;
+- if the useful mixed fourth moment requires exactly the unresolved correlation already named in Claude's paper, record the wall rather than renaming it.
 
 ## Related PerceptionLab repos
 
-- `AnttisBrain2` — source of the four-bounce resolution-horizon observation.
-- `HorizonNet` — the correction: horizon belongs to the observer / decision margin.
+- `AnttisBrain2` — four-bounce resolution horizon.
+- `HorizonNet` — correction: horizon belongs to the observer / decision margin.
 - `HilbertPolyaReintepretation` — prime loops / trace-log / closed-walk language; its realizability lemma remains the cliff.
 - `Alkuluku` — generic RMT statistics are cheap; arithmetic prime structure must survive the representation.
 - `Nuoli` — Hermitian broken-time-reversal mechanics can produce GUE statistics without solving the arithmetic problem.
 
 ## Ledger
 
-**Known mathematics being reused:** approximate functional equations, Riemann–Siegel truncation, Neumann/Fredholm expansions, Weyl perturbation, Sylvester inertia, restricted-support n-level correlation, Gram trace moments.
+**Known mathematics being reused:** approximate functional equations, Riemann–Siegel truncation, Neumann/Fredholm expansions, Weyl perturbation, Sylvester inertia, restricted-support n-level correlation, mixed test functions, Gram trace moments.
 
-**Verified here:** raw fixed-depth zeta contraction fails; a determinant contraction horizon degenerates at its zero; spectral-margin truncation can freeze inertia; homometric configurations defeat all pair-distance information while contracted higher closed-walk moments distinguish them.
+**Verified here:** raw fixed-depth zeta contraction fails; a determinant contraction horizon degenerates at its zero; spectral-margin truncation can freeze inertia; homometric configurations defeat all pair-distance information while higher closed-walk moments distinguish them; under a fixed toy aperture budget, asymmetric fourth-order allocation can be substantially more discriminative than equal allocation.
 
-**Not verified:** that the useful higher moment is unconditionally available on the prime side; that multiple apertures admit a stronger common inertia certificate; any improved zeta-zero proportion.
+**Not verified:** that the useful mixed higher moment is unconditionally available on the zeta prime side; that it yields a stronger worst-case inertia inequality; any improved zero proportion.
 
 **Forbidden headline:** `four terms approximate the Riemann zeta function`.
 
