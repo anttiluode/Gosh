@@ -1,0 +1,36 @@
+{
+  "gate": "gate12-two-pair-hs-composition",
+  "status": "raw_second_moment_composes_for_two_pairs_and_common_depth_families",
+  "exact_formula": {
+    "actual": "4 int |sum_i cosh(2*pi*xi*D_i) exp(2*pi*i*xi*x_i)|^2 dmu(xi)",
+    "virtual": "4 int |sum_i exp(2*pi*i*xi*x_i)|^2 dmu(xi)",
+    "mu": "Bochner measure of f=k^2, nonnegative because k is positive definite"
+  },
+  "theorems": {
+    "common_depth_any_m": "actual HS >= virtual HS pointwise in frequency",
+    "two_pairs_arbitrary_depths": "actual HS >= virtual HS pointwise in frequency",
+    "two_pair_minimum_identity": "min_theta difference = (c1-c2)^2 >= 0",
+    "three_unequal_weights": "pointwise monotonicity can fail; positivity alone no longer proves composition"
+  },
+  "montgomery_taylor_random_audit": {
+    "two_pair_samples": 20000,
+    "minimum_two_pair_hs_difference": 0.010877800151558148,
+    "common_depth_samples": 5000,
+    "minimum_common_depth_hs_difference": 1.306823367741572e-06
+  },
+  "frequency_level_three_weight_obstruction": {
+    "weights": [1.01, 1.01, 2.0],
+    "phases": [0.0, 0.0, 3.141592653589793],
+    "unweighted_modulus_sq": 1.0,
+    "weighted_modulus_sq": 0.0004000000000000007,
+    "difference": -0.9996
+  },
+  "registered_checks": {
+    "P12A_two_pair_random_sweep_nonnegative": true,
+    "P12B_common_depth_random_sweep_nonnegative": true,
+    "P12C_two_weight_pointwise_sweep_nonnegative": true,
+    "P12D_three_unequal_weight_pointwise_extension_fails": true
+  },
+  "all_registered_checks_pass": true,
+  "note": "The experiment script writes a fuller receipt with representative sample rows; this committed summary records the load-bearing values and checks."
+}
