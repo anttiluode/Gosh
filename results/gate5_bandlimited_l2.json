@@ -1,0 +1,38 @@
+{
+  "gate": "gate5-bandlimited-l2",
+  "status": "admissibility_possible_pair_projection_is_blind",
+  "kernel": {
+    "K_eta": "1/(u-i*eta)^2 + 1/(u+i*eta)^2",
+    "fourier": "-4*pi^2*|xi|*exp(-2*pi*eta*|xi|)",
+    "strip_tail_bound": "8*pi^2*exp(-alpha*B)*(B/alpha+1/alpha^2), alpha=2*pi*(eta-d)",
+    "scaled_tail_bound": "2*(x+1)*exp(-x), x=2*pi*(eta-d)*B"
+  },
+  "complex_tail_checks": [
+    {"z_real": 1.2, "z_imag": 0.3, "eta": 0.5, "bandwidth": 2, "abs_error": 0.8475605954049694, "tail_bound": 14.229215545702132, "error_over_bound": 0.0595648152691714, "bound_holds": true},
+    {"z_real": 0.7, "z_imag": 0.1, "eta": 0.5, "bandwidth": 2, "abs_error": 0.11310748471162853, "tail_bound": 0.49428392258416104, "error_over_bound": 0.22883100085532293, "bound_holds": true},
+    {"z_real": 1.2, "z_imag": 0.3, "eta": 0.5, "bandwidth": 4, "abs_error": 0.136351454933735, "tail_bound": 1.9771356903366442, "error_over_bound": 0.06896413614915758, "bound_holds": true},
+    {"z_real": 0.5, "z_imag": 0.4, "eta": 0.5, "bandwidth": 4, "abs_error": 4.065161007789296, "tail_bound": 56.91686218280856, "error_over_bound": 0.07142278846526358, "bound_holds": true}
+  ],
+  "dimensionless_horizon": [
+    {"x": 0.1, "scaled_tail_bound": 1.9906423196791112},
+    {"x": 0.5, "scaled_tail_bound": 1.8195919791379003},
+    {"x": 1, "scaled_tail_bound": 1.4715177646857693},
+    {"x": 2, "scaled_tail_bound": 0.8120116994196762},
+    {"x": 4, "scaled_tail_bound": 0.1831563888873418},
+    {"x": 8, "scaled_tail_bound": 0.006038327302245214},
+    {"x": 12, "scaled_tail_bound": 0.00015974952118653346}
+  ],
+  "homometric_pair_autocorrelation_checks": [
+    {"eta": 0.5, "bandwidth": 0.5, "score_A": 76.40009973351088, "score_B": 76.40009973351088, "abs_difference": 0.0},
+    {"eta": 0.5, "bandwidth": 1, "score_A": 122.33313343559998, "score_B": 122.33313343559998, "abs_difference": 0.0},
+    {"eta": 0.5, "bandwidth": 2, "score_A": 131.482761338001, "score_B": 131.482761338001, "abs_difference": 0.0},
+    {"eta": 0.75, "bandwidth": 1, "score_A": 37.22481872802349, "score_B": 37.22481872802349, "abs_difference": 0.0},
+    {"eta": 0.75, "bandwidth": 2, "score_A": 37.50906561755763, "score_B": 37.50906561755763, "abs_difference": 0.0}
+  ],
+  "registered_checks": {
+    "P5A_tail_bounds_hold": true,
+    "P5B_tail_decreases_after_x1": true,
+    "P5C_pair_projection_homometric_tie": true
+  },
+  "all_registered_checks_pass": true
+}
