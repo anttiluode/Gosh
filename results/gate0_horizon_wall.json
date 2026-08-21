@@ -1,0 +1,77 @@
+{
+  "gate": "gate0-moon-horizon",
+  "status": "toy_only_not_a_Riemann_result",
+  "0A_raw_series": {
+    "n_term_magnitude_ratios": {
+      "10": 0.9534625892455924,
+      "100": 0.9950371902099892,
+      "1000": 0.9995003746877732,
+      "10000": 0.9999500037496876,
+      "1000000": 0.999999500000375
+    },
+    "ratio_tends_to_one": true,
+    "sum_p_inverse_sqrt_checkpoints": {
+      "10": 1.856062762227652,
+      "100": 6.638673269863198,
+      "1000": 21.81492530098166,
+      "10000": 69.85313097636973,
+      "100000": 221.28919425017882,
+      "200000": 313.1737079848453
+    },
+    "rough_riemann_siegel_main_sum_lengths": {
+      "1e+02": 3,
+      "1e+04": 39,
+      "1e+06": 398,
+      "1e+12": 398942
+    },
+    "fixed_four_uniform_contraction_below_0_99": false,
+    "pass_prediction_P0A": true
+  },
+  "0B_neumann_zero_wall": {
+    "epsilon": 1e-06,
+    "rho_to_required_depth": {
+      "0.2": 8,
+      "0.5": 20,
+      "0.8": 69,
+      "0.9": 152,
+      "0.99": 1832,
+      "0.999": 20712,
+      "1.0": null
+    },
+    "rho_to_det_I_minus_L": {
+      "0.2": 0.6400000000000001,
+      "0.5": 0.4,
+      "0.8": 0.15999999999999998,
+      "0.9": 0.07999999999999999,
+      "0.99": 0.008000000000000007,
+      "0.999": 0.0008000000000000008,
+      "1.0": 0.0
+    },
+    "depths_strictly_increase_toward_one": true,
+    "zero_at_rho_one_has_no_geometric_certificate": true,
+    "pass_prediction_P0B": true
+  },
+  "0C_certificate_space_horizon": {
+    "amp": 0.4,
+    "q": 0.6,
+    "reference_terms": 200,
+    "reference_eigenvalues": [
+      -0.41963006802660624,
+      0.4704812499591622,
+      1.005620102499277,
+      1.6761817927110663
+    ],
+    "reference_inertia_neg_zero_pos": [1, 0, 3],
+    "first_certified_K": 2,
+    "rows": [
+      {"K": 0, "tail_op_bound": 1.0, "spectral_sign_margin": 0.35, "certified_by_weyl": false, "inertia": [1, 0, 3], "matches_reference_inertia": true},
+      {"K": 1, "tail_op_bound": 0.6, "spectral_sign_margin": 0.4254069678875206, "certified_by_weyl": false, "inertia": [1, 0, 3], "matches_reference_inertia": true},
+      {"K": 2, "tail_op_bound": 0.35999999999999993, "spectral_sign_margin": 0.45330196262572886, "certified_by_weyl": true, "inertia": [1, 0, 3], "matches_reference_inertia": true},
+      {"K": 3, "tail_op_bound": 0.21599999999999997, "spectral_sign_margin": 0.46533612885237635, "certified_by_weyl": true, "inertia": [1, 0, 3], "matches_reference_inertia": true},
+      {"K": 4, "tail_op_bound": 0.1296, "spectral_sign_margin": 0.4389591297228056, "certified_by_weyl": true, "inertia": [1, 0, 3], "matches_reference_inertia": true}
+    ],
+    "all_certified_rows_match_reference_inertia": true,
+    "pass_prediction_P0C": true
+  },
+  "all_registered_predictions_pass": true
+}
