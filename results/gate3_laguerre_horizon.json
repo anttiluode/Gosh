@@ -1,0 +1,55 @@
+{
+  "gate": "gate3-laguerre-horizon",
+  "status": "structure_and_falsification_toy_not_RH_progress",
+  "clockfield_fable_attacker": {
+    "a": 0.4,
+    "k": 3.9269908169872414,
+    "ak": 1.5707963267948966,
+    "q_ak_squared": 2.4674011002723395,
+    "scan_interval": [0.0, 40.0],
+    "scan_step": 0.001,
+    "min_L1": 0.0747841760435744,
+    "argmin_L1": 0.0,
+    "L1_at_zero": 0.07478417604357433,
+    "L2_at_zero": -1.9054461373362952,
+    "L1_passes_scan": true,
+    "L2_catches_at_zero": true
+  },
+  "laguerre_detection_depth_at_symmetry_point": [
+    {"q": 2.4674011002723395, "ak": 1.5707963267948966, "first_negative_order_at_x0": 2, "normalized_value": -1.9054461373362952, "order_over_ak": 1.2732395447351628},
+    {"q": 6.0, "ak": 2.449489742783178, "first_negative_order_at_x0": 3, "normalized_value": -1.4, "order_over_ak": 1.2247448713915892},
+    {"q": 10.0, "ak": 3.1622776601683795, "first_negative_order_at_x0": 3, "normalized_value": -1.2222222222222223, "order_over_ak": 0.9486832980505138},
+    {"q": 20.0, "ak": 4.47213595499958, "first_negative_order_at_x0": 4, "normalized_value": -0.5238095238095237, "order_over_ak": 0.8944271909999159},
+    {"q": 50.0, "ak": 7.0710678118654755, "first_negative_order_at_x0": 6, "normalized_value": -0.07744107744107742, "order_over_ak": 0.848528137423857},
+    {"q": 100.0, "ak": 10.0, "first_negative_order_at_x0": 9, "normalized_value": -0.15468409586056664, "order_over_ak": 0.9},
+    {"q": 200.0, "ak": 14.142135623730951, "first_negative_order_at_x0": 13, "normalized_value": -0.11482720178372352, "order_over_ak": 0.9192388155425117},
+    {"q": 500.0, "ak": 22.360679774997898, "first_negative_order_at_x0": 20, "normalized_value": -0.021264179158915875, "order_over_ak": 0.8944271909999159},
+    {"q": 1000.0, "ak": 31.622776601683793, "first_negative_order_at_x0": 29, "normalized_value": -0.026076162192314678, "order_over_ak": 0.91706052144883}
+  ],
+  "poisson_bandlimit": {
+    "note": "energy attenuation is not the same as metric discrimination",
+    "small_x_energy_attenuation": "3*pi*x + O(x^2)",
+    "small_x_l2_signature_distance": "(12*pi^2/5)*x^2 + O(x^3)",
+    "rows": [
+      {"x_a_times_B": 0.0001, "energy_attenuation": 0.0009420042203882595, "attenuation_over_3pi_x": 0.9994975205881245, "l2_signature_distance": 2.367465190555862e-07, "distance_over_12pi2_over5_x2": 0.9994765639131361},
+      {"x_a_times_B": 0.001, "energy_attenuation": 0.009377568782132029, "attenuation_over_3pi_x": 0.9949909505737049, "l2_signature_distance": 2.356341417608654e-05, "distance_over_12pi2_over5_x2": 0.9947804229065539},
+      {"x_a_times_B": 0.01, "energy_attenuation": 0.08967137944937398, "attenuation_over_3pi_x": 0.9514428862157912, "l2_signature_distance": 0.00224848624480134, "distance_over_12pi2_over5_x2": 0.9492470321949459},
+      {"x_a_times_B": 0.05, "energy_attenuation": 0.3709710603458587, "attenuation_over_3pi_x": 0.7872250399744695, "l2_signature_distance": 0.045888305222571146, "distance_over_12pi2_over5_x2": 0.7749095667486298},
+      {"x_a_times_B": 0.1, "energy_attenuation": 0.5978005828837466, "attenuation_over_3pi_x": 0.6342861183277637, "l2_signature_distance": 0.1441415378079708, "distance_over_12pi2_over5_x2": 0.6085246342804326}
+    ]
+  },
+  "gate2b_extreme_allocation_attack": [
+    {"thetas": [0.4, 0.4, 0.4, 0.4], "abs_separation": 0.9029058562002241},
+    {"thetas": [0.7, 0.05, 0.7, 0.15], "abs_separation": 2.1541721037271255},
+    {"thetas": [0.78, 0.02, 0.78, 0.02], "abs_separation": 0.21708864169739428},
+    {"thetas": [0.79, 0.01, 0.79, 0.01], "abs_separation": 0.03990849350595482},
+    {"thetas": [0.8, 0.0, 0.8, 0.0], "abs_separation": 7.105427357601002e-15}
+  ],
+  "registered_checks": {
+    "P3A_L1_passes_but_L2_catches_fable_fake": true,
+    "P3B_detection_depth_not_fixed": true,
+    "P3C_small_x_scalings_match": true,
+    "P3D_extreme_edge_loading_prediction_fails": true
+  },
+  "all_registered_checks_pass": true
+}
