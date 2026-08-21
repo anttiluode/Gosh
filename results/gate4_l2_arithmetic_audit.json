@@ -1,0 +1,45 @@
+{
+  "gate": "gate4-l2-arithmetic-audit",
+  "status": "algebraic_two_level_yes_arithmetic_admissibility_open",
+  "L2_pair_identity": {
+    "formula": "L2/f^2 = sum_{j<k} 1/((t-z_j)^2 (t-z_k)^2)",
+    "roots": [-3.0, -1.0, 2.0, 4.0],
+    "rows": [
+      {"t": 0.3, "L2_derivative_form": 266.5446, "f2_times_pair_form": 266.5446, "abs_error": 0.0},
+      {"t": 1.1, "L2_derivative_form": 276.5926, "f2_times_pair_form": 276.59259999999995, "abs_error": 5.684341886080802e-14},
+      {"t": 5.0, "L2_derivative_form": 3313.0, "f2_times_pair_form": 3313.0, "abs_error": 0.0}
+    ]
+  },
+  "normalized_singularity": {
+    "simple_zero": -1.0,
+    "predicted_eps_minus2_coefficient": 0.4011111111111111,
+    "rows": [
+      {"eps": 0.1, "normalized_L2": 38.772634131838025, "eps2_times_normalized_L2": 0.38772634131838035, "regular_L2": 345.2646000000001},
+      {"eps": 0.01, "normalized_L2": 3995.3889104294663, "eps2_times_normalized_L2": 0.39953889104294665, "regular_L2": 359.33096406000004},
+      {"eps": 0.001, "normalized_L2": 400951.4566268271, "eps2_times_normalized_L2": 0.4009514566268271, "regular_L2": 360.83210996400607},
+      {"eps": 0.0001, "normalized_L2": 40109512.12334036, "eps2_times_normalized_L2": 0.40109512123340363, "regular_L2": 360.983201099964}
+    ]
+  },
+  "gate2_connector_tests": {
+    "fixed_large_legs": {
+      "asymmetric": {"thetas": [0.7, 0.05, 0.7, 0.15], "abs_separation": 2.1541721037271255},
+      "equal_small_legs": {"thetas": [0.7, 0.1, 0.7, 0.1], "abs_separation": 1.991247714352692}
+    },
+    "matched_scaled_grid": {
+      "total_1_6": {"thetas": [0.7000000000000001, 0.05, 0.7000000000000001, 0.15000000000000002], "abs_separation": 2.154172103727129, "configurations_checked": 3835},
+      "small_leg_sum_1_6": 0.2,
+      "small_leg_fraction_1_6": 0.125,
+      "total_3_2": {"thetas": [1.4000000000000001, 0.1, 1.6, 0.1], "abs_separation": 0.5842372187618707, "configurations_checked": 3835},
+      "small_leg_sum_3_2": 0.2,
+      "small_leg_fraction_3_2": 0.0625
+    }
+  },
+  "registered_checks": {
+    "P4A_pair_identity": true,
+    "P4B_normalized_has_eps_minus2_pole": true,
+    "P4B_regular_L2_stays_finite": true,
+    "P4C_unequal_small_legs_win_at_fixed_large": true,
+    "P4D_absolute_small_budget_beats_ratio_story_on_matched_grid": true
+  },
+  "all_registered_checks_pass": true
+}
