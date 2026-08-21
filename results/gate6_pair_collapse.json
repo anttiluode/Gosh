@@ -1,0 +1,28 @@
+{
+  "gate": "gate6-pair-collapse",
+  "status": "safe_L2_certificate_is_pair_form_factor_class",
+  "atom_eta": 0.5,
+  "atom_fourier_support": [-0.4, 0.4],
+  "pair_fourier_support": [-0.8, 0.8],
+  "inside_bandwidth_one": true,
+  "certificate": "S/N >= 2 - Q/(N*R0), R=|K_B|^2",
+  "separated_marked_configuration": [
+    {"spacing": 2.0, "actual_simple_fraction": 0.3333333333333333, "certificate_lower_bound": -0.11201938301899927, "multiplicity_inequality_slack": 0, "bound_holds": true},
+    {"spacing": 5.0, "actual_simple_fraction": 0.3333333333333333, "certificate_lower_bound": 0.3309134432467029, "multiplicity_inequality_slack": 0, "bound_holds": true},
+    {"spacing": 10.0, "actual_simple_fraction": 0.3333333333333333, "certificate_lower_bound": 0.3331769524110073, "multiplicity_inequality_slack": 0, "bound_holds": true},
+    {"spacing": 20.0, "actual_simple_fraction": 0.3333333333333333, "certificate_lower_bound": 0.3333234771800315, "multiplicity_inequality_slack": 0, "bound_holds": true},
+    {"spacing": 50.0, "actual_simple_fraction": 0.3333333333333333, "certificate_lower_bound": 0.3333330804191801, "multiplicity_inequality_slack": 0, "bound_holds": true}
+  ],
+  "random_marked_checks": {
+    "count": 8,
+    "all_bounds_hold": true,
+    "all_marks_1_2_make_multiplicity_step_exact": true
+  },
+  "registered_checks": {
+    "P6A_pair_bandwidth_below_one": true,
+    "P6B_all_configuration_bounds_hold": true,
+    "P6C_marks_1_2_make_multiplicity_step_exact": true,
+    "P6D_separated_example_approaches_actual_fraction": true
+  },
+  "all_registered_checks_pass": true
+}
