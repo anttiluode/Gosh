@@ -1,0 +1,135 @@
+{
+  "gate": "gate11-complex-pair-metric",
+  "status": "full_lattice_pair_geometry_has_universal_4_to_1_quadratic_conversion",
+  "scope": "full Poisson-Gabor lattice / limiting normalized overlap kernel; finite compression has tail and edge errors",
+  "identities": {
+    "complex_poisson": "sum_k phihat(z-alpha_k) phihat(zprime-alpha_k) = L * hat(phi^2)(z-zprime)",
+    "normalized_bilinear_self": "u(D)^T u(D) = 1",
+    "normalized_hermitian_self": "u(D)^* u(D) = N(D) = k(2 i D)",
+    "reflected_pair_nonzero_spectrum": [
+      "N(D)+1",
+      "-(N(D)-1)"
+    ],
+    "longitudinal_small_gap": "1-k(d) = 2*pi^2*mu2*d^2 + O(d^4)",
+    "transverse_small_gap": "k(2iD)-1 = 8*pi^2*mu2*D^2 + O(D^4)",
+    "conversion": "c_trans/c_long = 4; leading penalties match at d=2D"
+  },
+  "montgomery_taylor": {
+    "spectral_profile": "v(t)=cos(sqrt(2)t), |t|<=1/2",
+    "K0": 0.9187253698655684,
+    "mu2": 0.07749929632069752,
+    "longitudinal_quadratic_coefficient": 1.529774792096169,
+    "transverse_quadratic_coefficient": 6.119099168384676,
+    "coefficient_ratio": 4.0
+  },
+  "rows": [
+    {
+      "x": 0.1,
+      "k_long_x": 0.9847751656468197,
+      "longitudinal_gap_1_minus_kx": 0.015224834353180339,
+      "longitudinal_gap_over_x2": 1.5224834353180337,
+      "offline_hermitian_norm_sq_k_2ix": 1.0623711527450617,
+      "transverse_negative_magnitude": 0.062371152745061664,
+      "transverse_gap_over_x2": 6.2371152745061655,
+      "transverse_to_longitudinal_same_x_ratio": 4.096672009573153,
+      "longitudinal_gap_at_2x": 0.060032413350820656,
+      "transverse_to_longitudinal_2x_ratio": 1.0389579439456107,
+      "pair_lambda_plus": 2.0623711527450617,
+      "pair_lambda_minus": -0.062371152745061664
+    },
+    {
+      "x": 0.03,
+      "k_long_x": 0.9986237945280184,
+      "longitudinal_gap_1_minus_kx": 0.0013762054719815842,
+      "longitudinal_gap_over_x2": 1.5291171910906491,
+      "offline_hermitian_norm_sq_k_2ix": 1.005516668543025,
+      "transverse_negative_magnitude": 0.005516668543025016,
+      "transverse_gap_over_x2": 6.12963171447224,
+      "transverse_to_longitudinal_same_x_ratio": 4.008608202292367,
+      "longitudinal_gap_at_2x": 0.005497725693559885,
+      "transverse_to_longitudinal_2x_ratio": 1.0034455792305959,
+      "pair_lambda_plus": 2.005516668543025,
+      "pair_lambda_minus": -0.005516668543025016
+    },
+    {
+      "x": 0.01,
+      "k_long_x": 0.9998470298288172,
+      "longitudinal_gap_1_minus_kx": 0.00015297017118276468,
+      "longitudinal_gap_over_x2": 1.5297017118276468,
+      "offline_hermitian_norm_sq_k_2ix": 1.0006120268587515,
+      "transverse_negative_magnitude": 0.0006120268587515021,
+      "transverse_gap_over_x2": 6.120268587515021,
+      "transverse_to_longitudinal_same_x_ratio": 4.000955572052467,
+      "longitudinal_gap_at_2x": 0.0006117929965059108,
+      "transverse_to_longitudinal_2x_ratio": 1.0003822571470962,
+      "pair_lambda_plus": 2.0006120268587515,
+      "pair_lambda_minus": -0.0006120268587515021
+    },
+    {
+      "x": 0.003,
+      "k_long_x": 0.9999862320860674,
+      "longitudinal_gap_1_minus_kx": 0.000013767913932594134,
+      "longitudinal_gap_over_x2": 1.5297682147326814,
+      "offline_hermitian_norm_sq_k_2ix": 1.0000550728396653,
+      "transverse_negative_magnitude": 0.00005507283966532661,
+      "transverse_gap_over_x2": 6.119204407258512,
+      "transverse_to_longitudinal_same_x_ratio": 4.000085992326497,
+      "longitudinal_gap_at_2x": 0.00005507094538105761,
+      "transverse_to_longitudinal_2x_ratio": 1.0000343971630028,
+      "pair_lambda_plus": 2.0000550728396655,
+      "pair_lambda_minus": -0.00005507283966532661
+    },
+    {
+      "x": 0.001,
+      "k_long_x": 0.9999984702259388,
+      "longitudinal_gap_1_minus_kx": 0.0000015297740612041366,
+      "longitudinal_gap_over_x2": 1.5297740612041366,
+      "offline_hermitian_norm_sq_k_2ix": 1.0000061191108613,
+      "transverse_negative_magnitude": 0.000006119110861346755,
+      "transverse_gap_over_x2": 6.119110861346755,
+      "transverse_to_longitudinal_same_x_ratio": 4.000009554698683,
+      "longitudinal_gap_at_2x": 0.000006119087475608964,
+      "transverse_to_longitudinal_2x_ratio": 1.000003821841406,
+      "pair_lambda_plus": 2.0000061191108616,
+      "pair_lambda_minus": -0.000006119110861346755
+    },
+    {
+      "x": 0.0003,
+      "k_long_x": 0.9999998623202746,
+      "longitudinal_gap_1_minus_kx": 1.3767972539824314e-7,
+      "longitudinal_gap_over_x2": 1.5297747266471462,
+      "offline_hermitian_norm_sq_k_2ix": 1.0000005507190197,
+      "transverse_negative_magnitude": 5.507190197207024e-7,
+      "transverse_gap_over_x2": 6.119100219118916,
+      "transverse_to_longitudinal_same_x_ratio": 4.00000085798929,
+      "longitudinal_gap_at_2x": 5.507188304277654e-7,
+      "transverse_to_longitudinal_2x_ratio": 1.0000003437199079,
+      "pair_lambda_plus": 2.0000005507190197,
+      "pair_lambda_minus": -5.507190197207024e-7
+    },
+    {
+      "x": 0.0001,
+      "k_long_x": 0.9999999847022523,
+      "longitudinal_gap_1_minus_kx": 1.5297747735232292e-8,
+      "longitudinal_gap_over_x2": 1.5297747735232292,
+      "offline_hermitian_norm_sq_k_2ix": 1.000000061190993,
+      "transverse_negative_magnitude": 6.119099293933061e-8,
+      "transverse_gap_over_x2": 6.119099293933061,
+      "transverse_to_longitudinal_same_x_ratio": 4.000000130633704,
+      "longitudinal_gap_at_2x": 6.119098594492334e-8,
+      "transverse_to_longitudinal_2x_ratio": 1.000000114306174,
+      "pair_lambda_plus": 2.0000000611909927,
+      "pair_lambda_minus": -6.119099293933061e-8
+    }
+  ],
+  "registered_checks": {
+    "P11A_kernel_normalized": true,
+    "P11B_transverse_norm_exceeds_one_for_nonzero_D": true,
+    "P11C_longitudinal_coefficient_matches_mu2": true,
+    "P11D_transverse_coefficient_matches_mu2": true,
+    "P11E_same_coordinate_ratio_tends_to_four": true,
+    "P11F_d_equals_2D_equalizes_leading_penalty": true,
+    "P11G_pair_negative_eigenvalue_is_exactly_minus_norm_excess": true
+  },
+  "all_registered_checks_pass": true
+}
