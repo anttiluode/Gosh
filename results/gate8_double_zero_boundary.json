@@ -1,0 +1,28 @@
+{
+  "gate": "gate8-double-zero-boundary",
+  "status": "off_line_pair_approaches_double_zero_quadratically",
+  "toy": "u(a)=[1,1+i a]",
+  "H0": [[2.0,2.0],[2.0,2.0]],
+  "rows": [
+    {"a": 0.1, "lambda_minus": -0.010024999843751936, "abs_lambda_minus_over_a2": 1.0024999843751934, "op_difference_over_a2": 2.0000000000000013},
+    {"a": 0.03, "lambda_minus": -0.0009002024999897884, "abs_lambda_minus_over_a2": 1.0002249999886539, "op_difference_over_a2": 2.0000000000000266},
+    {"a": 0.01, "lambda_minus": -0.00010000249999997379, "abs_lambda_minus_over_a2": 1.000024999999738, "op_difference_over_a2": 1.9999999999997797},
+    {"a": 0.003, "lambda_minus": -9.000020250060636e-06, "abs_lambda_minus_over_a2": 1.0000022500067374, "op_difference_over_a2": 2.000000000008168},
+    {"a": 0.001, "lambda_minus": -1.0000002500509808e-06, "abs_lambda_minus_over_a2": 1.0000002500509808, "op_difference_over_a2": 2.0000000000575113},
+    {"a": 0.0001, "lambda_minus": -1.0000000050247593e-08, "abs_lambda_minus_over_a2": 1.0000000050247593, "op_difference_over_a2": 2.0000000100495186},
+    {"a": 1e-05, "lambda_minus": -1.000000082740371e-10, "abs_lambda_minus_over_a2": 1.0000000827403708, "op_difference_over_a2": 2.0000001654807416}
+  ],
+  "weyl_horizon": [
+    {"delta": 0.01, "sqrt_delta": 0.1, "smallest_a_certifiable_on_sweep": 0.09988493699365057},
+    {"delta": 0.0001, "sqrt_delta": 0.01, "smallest_a_certifiable_on_sweep": 0.01},
+    {"delta": 1e-06, "sqrt_delta": 0.001, "smallest_a_certifiable_on_sweep": 0.001},
+    {"delta": 1e-08, "sqrt_delta": 0.0001, "smallest_a_certifiable_on_sweep": 0.00010011519555381693}
+  ],
+  "registered_checks": {
+    "P8A_matrix_difference_is_2a2": true,
+    "P8B_negative_eigenvalue_is_quadratic": true,
+    "P8C_exact_eigenvalue_formula_matches": true,
+    "P8D_weyl_horizon_scales_sqrt_delta": true
+  },
+  "all_registered_checks_pass": true
+}
