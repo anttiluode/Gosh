@@ -10,7 +10,7 @@ An intentionally silly name for a serious falsification workflow around Riemann-
 
 The immediate prompt came from two otherwise unrelated lines:
 
-1. **Claude / Alpöge–Furman (August 2026):** the new rank–trace / inertia argument proving that more than two thirds of zeta zeros are simple and on the critical line. The interesting structural move is to turn prime-side trace information into a constraint on how many negative directions the zero side can contain.
+1. **Claude / Alpöge–Furman (August 2026):** the new rank–trace / inertia argument proving that more than two thirds of zeta zeros are simple and on the critical line. Its structural move is to turn prime-side trace information into a constraint on how many negative directions the zero side can contain.
 2. **AnttisBrain2 / HorizonNet (July 2026):** an apparently infinite hall of mirror moons became observationally complete after four bounces because one repeated operator contracted both amplitude and visible resolution. HorizonNet later clarified the important lesson: the useful horizon belongs in the *observer/decision*, not automatically in the internal state.
 
 The question for `Gosh` is therefore not "can four terms solve an infinite zeta series?" They cannot. The question is:
@@ -19,72 +19,145 @@ The question for `Gosh` is therefore not "can four terms solve an infinite zeta 
 
 That wording gives the idea somewhere precise to fail.
 
-## Immediate stop line
-
-The naive transplant is dead on arrival.
-
-On the critical line, the ordinary Dirichlet / Euler expansions do not have a uniform contraction factor below one. In particular, prime amplitudes of size `p^(-1/2)` are not absolutely summable. So `4 = infinity` is **not** a valid truncation rule for zeta, the Euler product, or the prime orbit tower.
-
-Analytic number theory already has sophisticated finite-horizon machinery — approximate functional equations, Riemann–Siegel type truncations, smoothed explicit formulas, compact Fourier support. Any useful result here must be stronger or differently targeted than simply rediscovering truncation.
-
 ## Branch map
 
 ```text
 main
 │
 └── sol/gate0-moon-horizon
-      Gate 0A  raw-series contraction test
-      Gate 0B  Fredholm / Neumann zero-wall
-      Gate 0C  certificate-space (spectral-margin) horizon
+      Gate 0A  raw-series contraction test              KILLED
+      Gate 0B  Fredholm / Neumann zero-wall             VERIFIED NEGATIVE
+      Gate 0C  certificate-space spectral horizon       WORKS IN TOY
+      │
+      └── next: sol/gate1-contracting-bandwidth
+            deeper moment -> narrower arithmetic aperture
 ```
 
-### `sol/gate0-moon-horizon` — current gate
+## Gate 0 — verdict
 
-Three claims are separated deliberately.
+Branch: [`sol/gate0-moon-horizon`](../../tree/sol/gate0-moon-horizon)
 
-**0A — Raw series.** A fixed-depth moon-style horizon should fail for the critical-line Dirichlet / prime series. If it appears to work numerically without a rigorous tail bound, count that as a failure, not a discovery.
+Detailed note: [`notes/gate0_moon_horizon.md`](../../blob/sol/gate0-moon-horizon/notes/gate0_moon_horizon.md)
 
-**0B — Operator horizon.** Suppose an analytic construction has
+Experiment: [`experiments/gate0_horizon_wall.py`](../../blob/sol/gate0-moon-horizon/experiments/gate0_horizon_wall.py)
+
+Receipt: [`results/gate0_horizon_wall.json`](../../blob/sol/gate0-moon-horizon/results/gate0_horizon_wall.json)
+
+### 0A — raw zeta / prime series: killed
+
+On the critical line,
+
+```text
+|a_(n+1)| / |a_n| = sqrt(n/(n+1)) -> 1.
+```
+
+There is no uniform geometric contraction factor below one, and the prime amplitudes `p^-1/2` are not absolutely summable. A universal fixed-depth `4 = infinity` truncation is therefore not available. Analytic number theory already has the legitimate version — approximate functional equations / Riemann–Siegel — whose required depth grows with height.
+
+### 0B — Fredholm / Neumann horizon: useful negative
+
+If
 
 ```text
 D(s) = det(I - L_s)
 ```
 
-with a trace-class operator `L_s`. If `||L_s|| < 1`, then Neumann / log-determinant tails can be bounded geometrically. But if `D(s)=0`, then `1` is an eigenvalue of `L_s`, so its spectral radius is at least one. Therefore a uniform contraction certificate cannot remain valid at the zero it is trying to detect. Registered prediction: the certified depth diverges as the model approaches the toy zero.
+and `||L_s|| < 1`, a Neumann / trace-log tail can be certified geometrically. But `D(s)=0` means `1` is in the spectrum of `L_s`, so the contraction condition fails at the zero itself.
 
-**0C — The surviving possibility: put the horizon in certificate space.** If a Hermitian object `G` is approximated by `G_K` and the uncomputed tail obeys
+The toy makes the failure visible. For an error target `1e-6`, the required Neumann depth rises
 
 ```text
-||G - G_K||_op < delta,
+rho=.8   -> K=69
+rho=.9   -> K=152
+rho=.99  -> K=1832
+rho=.999 -> K=20712
+rho=1    -> no geometric certificate
 ```
 
-then Weyl perturbation moves every eigenvalue by at most `delta`. Therefore, whenever the computed spectrum stays farther than `delta` from zero, the signs of those eigenvalues — hence the relevant inertia — are already certified. This is the direct analogue of AnttisBrain's "smaller than one pixel": the arithmetic tail need not literally vanish; it only has to become too small to change the final sign/inertia decision.
+So a pure contraction certificate can certify invertible / zero-free regions; it cannot by itself cross the spectral event of interest.
 
-The reason this is potentially relevant to the 2026 rank–trace result is that its new information is explicitly **Hermitian/inertial**. The first experiment is only a toy. A later gate must use the actual finite Weil compression before any Riemann-facing claim is allowed.
+### 0C — the surviving transplant: horizon in certificate space
 
-## What would count as progress
+Let a Hermitian target be `G`, a computed truncation be `G_K`, and suppose
 
-- **Useful negative:** prove that any contraction horizon necessarily degenerates at the exact spectral points of interest. Keep the theorem and stop trying to use contraction as a proof engine.
-- **Useful positive:** obtain a rigorous tail-to-inertia bound for an actual Weil-form compression, then show that a finite amount of arithmetic data certifies the same inertia statement as the untruncated object.
-- **More interesting positive:** find a higher-trace / closed-walk certificate whose extra information survives a rigorous observation horizon and is not already contained in the bandwidth-one rank–trace framework.
+```text
+||G - G_K||_op <= delta_K.
+```
 
-Anything weaker — pretty zeta spirals, four-term coincidences, GUE-looking spectra, fits to known zeros — is not progress here.
+By Weyl perturbation, every eigenvalue moves by at most `delta_K`. If
+
+```text
+min_j |lambda_j(G_K)| > delta_K,
+```
+
+the omitted tail cannot change any eigenvalue sign. The inertia is already certified.
+
+This is the exact analogue of the moon renderer's `below one pixel` rule:
+
+```text
+AnttisBrain2: uncomputed image < visual resolution
+Gosh:         uncomputed operator < spectral sign margin
+```
+
+In the deterministic infinite Hermitian toy the certificate fires after only `K=2` terms and all certified truncations have the same inertia as a 200-term reference. **Four disappears; the observation-margin principle survives.**
+
+This is standard perturbation theory used in a particular role, not a Riemann result.
+
+## The more interesting wall found after Gate 0
+
+Claude's paper already discusses higher Gram / trace moments. At full arithmetic bandwidth, the known unconditional prime estimates do not supply the higher correlations needed to exploit those moments. The paper records a schematic range of the form
+
+```text
+X^k <= T^(2-epsilon).
+```
+
+At `X ~ T`, higher order rapidly leaves the unconditional range. Conditionally, the paper shows why those moments matter: a Hardy–Littlewood-type fourth-order input would lift the simple-on-line proportion to `13/18 ≈ 72.22%`, while sufficiently many moments drive this counting mechanism toward 100% simple on-line zeros (still not RH).
+
+That changes the target. The obstacle is not generic infinity; it is **arithmetic resolution versus moment depth**.
+
+## Gate 1 candidate — contracting arithmetic bandwidth
+
+The AnttisBrain-shaped gamble is now:
+
+```text
+mirror bounce gets deeper -> spatial resolution contracts
+trace moment gets higher  -> arithmetic bandwidth contracts
+```
+
+Choose a schedule
+
+```text
+X_k = T^theta_k,     k * theta_k < 2,
+```
+
+so deeper moments stay inside an unconditional analytic range. Then ask:
+
+> **Can sharp low-order/full-bandwidth information plus blurrier higher-order information constrain the same zero configuration more strongly than the bandwidth-one two-moment certificate?**
+
+This is not yet a theorem or novelty claim. A valid Gate 1 must explain how the different-bandwidth Hermitian compressions constrain the *same* zero configuration and must not smuggle in the very Hardy–Littlewood correlations it claims to avoid.
+
+### Gate 1 stop lines
+
+- no numerical zero data substituted for a prime-side theorem;
+- no silent comparison of different matrices / bandwidths;
+- no GUE-looking-spectrum proxy;
+- no hidden Hardy–Littlewood assumption;
+- numerical separation is reconnaissance only until a configuration-wise inequality exists.
 
 ## Related PerceptionLab repos
 
 - `AnttisBrain2` — source of the four-bounce resolution-horizon observation.
-- `HorizonNet` — the correction: a contraction certificate only recovers computation already below the decision resolution; the horizon belongs in the observer.
-- `HilbertPolyaReintepretation` — prime loops / trace-log / delay-network formulation; useful language, but its Prime Orbit Condition + self-adjoint realizability lemma remains the cliff.
+- `HorizonNet` — the correction: the useful horizon is tied to the observer / decision margin.
+- `HilbertPolyaReintepretation` — prime loops / trace-log / delay-network language; its Prime Orbit Condition + self-adjoint realizability lemma remains the cliff.
 - `Alkuluku` — standing falsifier: generic RMT statistics are cheap; the arithmetic prime trace is the thing that must survive.
-- `Nuoli` — broken time reversal can move a Hermitian construction from GOE toward GUE without making the spectrum complex; necessary symmetry mechanics, not the arithmetic solution.
+- `Nuoli` — broken time reversal can move a Hermitian construction from GOE toward GUE without making its spectrum complex; necessary symmetry mechanics, not the arithmetic solution.
 
 ## Ledger
 
-**Known mathematics being reused:** Neumann series, Fredholm determinants, trace-log expansions, Banach contraction bounds, Weyl eigenvalue perturbation, Sylvester inertia, approximate functional equations / explicit-formula truncation.
+**Known mathematics being reused:** approximate functional equations, Riemann–Siegel truncation, Neumann series, Fredholm determinants, trace-log expansions, Banach contraction bounds, Weyl eigenvalue perturbation, Sylvester inertia, Gabor / band-limited compressions.
 
-**Current hypothesis:** an AnttisBrain-style *observation* horizon may be useful at the level of a Hermitian Riemann certificate even though it is useless as a fixed-depth truncation of zeta itself.
+**Verified here:** the raw moon-style truncation fails; the contraction horizon degenerates at a determinant zero; a decision-space spectral-margin horizon can rigorously freeze inertia in a toy infinite Hermitian sum.
 
-**Current status:** Gate 0 not yet run.
+**Current hypothesis:** progressively coarser arithmetic apertures may make some higher-order spectral information unconditional and jointly useful. Unchecked.
 
 **Forbidden headline:** "four terms approximate the Riemann zeta function".
 
